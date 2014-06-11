@@ -1,0 +1,37 @@
+This is one of the hardest part, as it sucks to miss someone who helped you. I hope I didnt miss anyone:
+
+ccc: well, you may not remember this, but a long time ago you wrote in a forum thread "what about a new cockpit editor?" when I was looking for my cockpit resizer... Well, there it is =D
+
+badger: many hours of chatting, testing stuff, debugging etc. My sincere thanks to you! Oh, and the russian pits!
+
+eole2: another one who decided to test this dark tool. Nice Rafale pit man! Thanks so much for the feedback(and the pit of course)!
+
+daws and buzz: your 3d pits rock!!
+
+Jojo: awesome mirage, and very nice feedbacks! Some nasty bugs found also! Thanks for your time.
+
+cobracab: a lil help in the beginning, I still owe you my thanks. Im really looking forward to see your tomcat pit. Looks pretty good right now!
+
+aeyes: well, who else but the pit meister? Always present in the cockpit fora, thank you, really nice work. I hope this tool can help ya.
+
+drstop: a nice f117 pit very long ago... I hope you find this tool useful.
+
+codec: if your editor didnt crash so much, I wouldnt do this! Anyway, a great tool, in a short period of time(took me 7 months to make this work). A shame you left falcon.
+
+fixitman: tons of bug fixes and improvements. Thanks a lot!
+
+F4UT: nice work on superpaks!
+BMS: awesome exe work!
+FreeFalcon guys: lots of nice people, awesome work!
+
+If you wanna thank, scream, kill, say anything useful, feedback or just chat
+Matheus Ferreira Ribeiro - mfribeiro@gmail.com
+ICQ: 3947683
+
+Im usually at work, so dont feel offended if I cant answer ya. Ill try my best. If the program crashed on ya and youre pissed off at me, before throwing me thousands of mail, check the backup the program did before saving(XX_ckpit.bak). And as always: BACKUP STABLE FILES!!!!!!
+
+And have fun, yall(this been lots of fun to me)
+Seifer out
+
+
+

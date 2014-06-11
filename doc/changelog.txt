@@ -1,0 +1,691 @@
+All dates are in DD/MM/YYYY format.
+
+10/03/2008:
+----------
+
+Fixed the new panel bug. Version 4.5.3
+
+09/02/2008:
+----------
+
+Compiling again. Tests begin. Version 4.5.
+
+Changed PropertiesDialog to avoid duplicate code. Requires changing all others classes.
+
+08/02/2008:
+----------
+
+Started adding manager property dialog.
+
+Added version string parsing.
+
+31/12/2007:
+----------
+
+Changed some dial strings to "angle" making it easier to understand. Now also use angles like falcon, meaning 0 = 3 o clock and CCW direction.
+
+30/12/2007:
+----------
+
+Indicators have no opaque transparent bit. Removed.
+
+Added tip to dial values field (in angles).
+
+09/12/2007:
+----------
+
+Fixed pantiltlabel (use integer now). Also fixed a null pointer exception when
+liftlines and chevrons are selected.
+
+Added mirror support.
+
+
+01/08/2007:
+----------
+
+Whenever a field has the opaque/transparent radio, it must be selected (we dont allow empty ones anymore).
+
+Added mirror.
+
+Fixed cyclebits in machasi.
+
+
+25/07/2007:
+----------
+
+version: 4.0.4
+
+Fixed a bug where the buttons list wouldnt show in buttonview properties.
+
+Fixed a bug where an added kneeview without desloc caused program to hang.
+
+
+28/06/2007:
+----------
+
+Fixed a bug creating new cockpit where program wouldnt set up Cockpit.cwd correctly.
+
+19/05/2007:
+----------
+
+Fixed the lock up when image was not present in panel and buffer (load always set load to true).
+
+
+18/02/2007:
+----------
+
+Added more menus (object).
+
+Fixed button labels
+
+07/10/2006:
+----------
+
+Fixed undo bug when zoom was different from 1.0.
+
+Fixed osb drawing: falcon uses XY order, and +y is up instead of low.
+
+Fixed a bug in osb properties, where close was being disabled.
+
+Added drag and drop OSBs.
+
+
+15/05/2006:
+----------
+
+Added dedfont to panel. 
+
+Now program writes all font values of panel section if they are >= 0
+
+Added font to panel properties (shift P)
+
+30/14/2006:
+----------
+
+Added night light for buffers, supporting flood and instrument lights.
+
+Template is still working the old way.
+
+
+26/04/2006:
+----------
+
+Added state for indicators (middle, max and minimum position).
+
+Changed the way zoom works, using fixed factors (faster).
+
+
+14/10/2005:
+----------
+
+Added state buttons(reset, next, prev) for buttonviews, lights and dials dialogs.
+
+23/09/2005:
+----------
+
+When creating a buttonview from a button, comments are inherited.
+
+22/09/2005:
+----------
+
+First undo/redo working for move actions.
+
+19/09/2005:
+----------
+
+Version 3.0 finished. Added the "New" function. Added template dialog for
+changing template image.
+
+Template file 16_ckpit.dat renamed to cockpit.dat.
+
+Testing "New" cockpit feature. Program now asks for resolution before reading
+the cockpit.dat template file.
+
+18/09/2005:
+----------
+
+New objects created now have the //name: in the comments tab.
+
+Changed the how clipboard copy works. Upon copy, all objects copied are
+immediately converted to text. This avoids the problem where you copy an
+object, modify it and paste.
+
+Fixed a bug when a light was created with initstate set higher than states.
+
+Fixed a bug with comments, where comment panes were not creating comments with
+double slash //.
+
+04/09/2005:
+----------
+
+Fixed a small issue with zoom and scrollbars(when zoom is different from 1.0,
+and changed panels, scrollbars were treating panel as if zoom was at 1.0.
+
+Fixed a bug with state change(objects that might have states but were not
+using it).
+
+Wont draw sky or horizon below masktop now.
+
+03/09/2005:
+----------
+
+Added autotilt key(shift i), to compute tilt value based on gc position.
+
+Found the FoV angle, 46.4 degrees. Also, masktop affects the horizon, horizon
+is displaced by (height - masktop)/2.
+
+02/09/2005:
+----------
+
+Added UsPr.skyColor and UsPr.terrainColor. Changed to darker values too.
+
+Added Hud guncross. Still adjusting.
+
+29/08/2005:
+----------
+
+Added horizon:
+
+h = (tan(-tilt) * V_Res) / (2 * tan(V_FoV / 2))
+where 	tilt is falcon panel tilt value(from pantilt),
+	V_Res is the cockpit vertical resolution,
+	V_FoV is falcon vertical FoV, considered 60 here.
+
+For this, added computeTilt function to panel class. This is called after
+pantilt is parsed, or changed by user.
+
+26/08/2005:
+----------
+
+Added shift A to select all objects in panel.
+
+21/08/2005:
+----------
+
+Fixed a bug in panel creationg, with buffers. Surfaces filename was not being
+set. So check was throwing null pointer exception.
+
+Fixed a bug in panel creation, with buffers. Buffersize was nulled. Now, when
+a buffer is created, buffersize is set to cockpit resolution.
+
+20/08/2005:
+----------
+
+
+Fixed leftover bug, in dat format(if you opened a dat in OF format, and opened
+another file, it would be recognized as OF). Now before reading cockpit files,
+always set format to default.
+
+Changed the copy message to no selected objects and that happens.
+
+Fixed a bug with panel editing for non OF cockpits.
+
+19/08/2005:
+----------
+
+Changed the way E key works for indicators. It will only adjust one of the
+directions(srcloc width will be equal do dstloc for vertical, and the opposite
+for horizontal).
+
+Changed the way indicators are drawn, based on fixitman observations. For
+vertical indicators, srcloc width overrides destloc, and for horizontal,
+srcloc height overrides destloc height.
+
+Program now generates multiple backup files: if it finds a backup, it creates
+a <prefix>-1.bak, up to <prefix>-100.bak. Then it issues a warning of backup
+overflow.
+
+14/08/2005:
+----------
+
+Added support for shared surfaces. Now, while saving, we check for them, and
+if a panel shares surface with another one, we skip it.
+
+12/08/2005:
+----------
+
+Fixed the 90 degree clockwise translation falcon uses, thanks to fixitman.
+Also falcon uses CCW rotation, fixed that too.
+
+Added Ctrl T to reset object state. Shift Control T to reset all objects in
+panel to defaul position.
+
+Made dials override all state functions, so they can use it too.(T ow works
+for dials)
+
+
+01/08/2005:
+----------
+
+Added the dat format variable, with cobra, OF and default options, at UsPr static class.
+
+Added OF options at Rips request(button data, panel litpalette).
+
+Changed the way LabeledNumFields return, now they throw if field is blank.
+Also added the isFieldValid function to check if field is valid.
+
+27/07/2005:
+----------
+
+Added T keystroke for state change(and shift T for previous). Added state
+functions to PitObjects. In future, all state operations should be
+encapsulated.
+
+Added DED color display. The DED write will be written in DED color now.
+
+20/06/2005:
+----------
+
+Fixed ADI bug, when they have a buffer. Was writing a \n after the first #END.
+
+08/06/2005:
+----------
+
+2.13.3: fixed super copy
+
+31/05/2005:
+----------
+
+2.13.2: fixed multiple objects copy paste(forgot to set parser mode to normal)
+
+1.13.1: Fixed Button dialog name(was Buttonview, wrong).
+
+First version of true copy/paste using system clipboard.
+
+29/03/2005:
+----------
+
+2.12.2: fixed slowdown problem, was not setting loaded = true
+
+Version 2.12 still
+
+Added night view. Cool! Now program stores 4 types of image per panel, and template.
+
+
+28/03/2005:
+----------
+
+Version 2.12
+
+Template was being drawn from coord -1, -1, causing 1pix misalignment.
+
+Lights no longer are lowest priority. Objects are picked and the real order. Use Shift B and shift F to change order. This will reflect in falcon, so its good.
+
+Added zoom value to panel.
+
+Added the E key, to make srcs equal to dests.
+
+
+24/03/2005:
+----------
+
+Fixed zoom and centerOnCurrent issues.
+
+Changed the line stroke to sub pixel. Also changed the way the rectangles are draw, to reflect the way java pen draws.
+
+
+21/03/2005:
+----------
+
+Added the reload function to both panel and template(shift R).
+
+Fixed the alignment of windows and dialogs, using setLocationRelativeTo(component).
+
+Fixed the zoom in the template panel. The (int) typecast was zeroing the zoom value.
+
+20/03/2005:
+----------
+
+Version 2.10
+
+Added the send to background feature(shift+B), should help with flood lights.
+
+Added he send to foreground also(shift+F).
+
+19/04/2005:
+----------
+
+Version 2.9
+
+Added support for user resolution, through the auto res checkbox.
+
+Fixed the save bug, was not closing the buffered reader after reading the file, and windows reported the file as being used.
+
+Also, added a wait call inside busy wait image loading, helping windows loading times.
+
+Took the masktop check out. Now it will come into play only when you check the pit.
+
+
+18/04/2005:
+----------
+
+Fixed a bug in panel properties, where it was not changing the background image when there was an image loaded already.
+
+
+10/04/2005:
+----------
+
+Fixed a bug for the dials, was using values for angles, now using points as it should be. 
+
+Also changed the behavior of the LabeledFloatField class.
+
+The number of points is taken from the fields implicitly now.
+
+02/03/2005:
+----------
+
+Fixed a bugs for HSI colors, was not accepting 10 colors(only 9).
+
+
+01/04/2005:
+----------
+
+Changed dial properties: now values are displayed in degrees.
+
+Took trans/opque off of the dials. Looks like all rendered needles are transparent.
+
+
+31/03/2005:
+----------
+
+Fixed a bug in the HSI, while saving. Version 2.7.1 wasnt saving because of this.
+
+25/03/2005:
+----------
+
+Fixed a bug in the HSI dialog, the cyclebits was being wrongly set(was using callbackslot). Also, added the color tab to its properties.
+
+Also, took the transparent/opaque from HSI srcs.
+
+
+24/03/2005:
+----------
+
+Mouse and object coordinates to template, added the bottom bar. UsPr now hold drawAlpha and drawLabel variables.
+
+
+21/03/2005:
+----------
+
+Added mouse coordinates and also the change in the mouse cursor.
+
+
+20/03/2005:
+----------
+
+Changed offset to integer. Should help with invisible cockpits... Thanks wombat
+
+
+19/03/2005:
+----------
+
+Added numpad +/- for zoom... gonna have some problems with keycode for different keyboards... damn =(
+
+Added the sort objects to the PanelObject  list. Now all objects are sorted. Added color to the list objects, they match the same colors in the User Preferences.
+
+
+18/03/2005:
+----------
+
+Fixed the open functions, now it allows for multiple file open.
+
+Fixed a small glitch, missing break after O key and L key press.
+
+Added the object coordinates to the bottom bar. Object coordinates will only be shown if you have a single object selected.
+
+Changed the way selected objects are drawn. Now panel calls draw for each selected object, then set stroke to selected and draw the selected destination outline. This way, the selected objects will have an orange outline and selected destination will have selected stroke.
+
+Changed the way mouse click selects each destination. Now it goes from higher destloc to destloc 0(inverted).
+
+Chnaged ADI bsrcloc to srcloc[1], bdestloc to destloc[1], ilslimits to destloc[2]. The backsrc and backdest are still there though.
+
+08/03/2005:
+----------
+
+Changed the way save works... (again). Looks like windows is complaining about filenames.
+
+05/03/2005:
+----------
+
+Fixed delete panel, and added a check for panel 1100.
+
+Added the create child button to the buttons list. Now user can create a button from it.
+
+Changed the way clicks are handled. Things only change state now when you click on an already selected object. Mutiple moves,right button move and shift move should be working.
+
+Changed the way the buttonview properties are shown. Now user cant choose the number of states anymore. Program gets taht from the number of valid srcs.
+
+Fixed the comment bug, where it created a new line when reading from commentsPane.
+
+04/03/2005:
+----------
+
+Fixed a bug when drawing buffers with no images(because the images are not in the directory).
+
+Possibly fixed the save bug in windows...
+
+
+01/03/2005:
+----------
+Added the drag and drop multiple source/dest(right mouse)
+
+Fixed the nudge(1 pix move) in template. Was not refreshing.
+
+Ok, eol character should work on all plataforms now, due to System.getProperty("line.separator").
+
+Comments are trimmed and ajusted also, much nicer file.
+
+Added create/delete/edit button(parent button). B key
+
+28/02/2005:
+----------
+
+Fixed a null pointer when the currentState of a button was set to a value higher than the number of sources. This happened
+when the buttonview was draw in state X, then properties came in and changed to 0. When update was clicked, null pointer.
+
+Put the toString function of the comment back, because its needed.
+
+Added the requestFocus property to both windows, so they get focus on click in title bar.
+
+27/02/2005:
+----------
+
+Fixed an error when the panel has some minisurfaces but there are no buffers nor surfaces there.
+
+25/02/2005:
+----------
+
+Now update objects also updates the label.
+
+Mousepressed on pit panel returns if no object selected.
+
+23/02/2005:
+----------
+
+Added the objects list in panel, so you can pick one from list.
+
+21/02/2005:
+----------
+
+Fixed a bug where saving multiple times was failing. 
+
+Fixed the template not resizing bug(because of multiple objects).
+
+20/02/2005:
+----------
+
+Fixed a buffer load problem, which was causing program to hang when viewing a panel with no buffers.
+
+Added the multiple object select.
+
+19/02/2005:
+----------
+
+Fixed the button reference count.
+
+18/02/2005:
+----------
+
+Fixed a null pointer exception when drawing objects without srcloc in labeled mode. Added the srcloc==null check.
+
+Zoooooooooooooooooooooooooomm!! Cool!
+
+17/02/2005:
+----------
+
+New MFDs come with osbs. 
+
+Surfaces and buffers comments are not saved anymore. 
+
+Fixed a bug when saving without the images would cause save to fail.
+
+New buffers are transparent now.
+
+14/02/2005:
+----------
+
+Screen was not being repainted after paste, fixed that.
+
+11/02/2005:
+----------
+
+Changed the way the adjacent panels work. If invalid, consider -1 now.
+
+10/02/2005:
+----------
+
+Created the UsPr class, with user preferences. Way to customization.
+
+Fixed a bug in the PitColor class, where the contructor with a Color was wrong(blue was being set to red).
+
+08/02/2005:
+----------
+
+Implemented the new panel! Finally, but surface editing is still missing. But we can live with it!
+
+07/02/2005:
+----------
+
+Changed the way parser reads buffer. Now, it reads a buffer and expects to see surfaces. All buffers are valid at read time, and when the PitPanel is first loaded, it will get its data from the buffer(first minisurface, surface, then buffer).
+
+When saving, ignores surface filename and uses buffer.
+
+When creating buffer, default to the full screen, which is the way BMS does now, and is much easier.
+
+Changed some drawing functions, repaints etc... program appears to be much faster now. At least IMHO. Should load faster also, as we load on demand now.
+
+05/02/2005:
+----------
+
+Changed the way buffer are handled. Now, every panel may or may not have a buffer. This simplifies the panel properties a lot, and from what aeyes said, wont affect much(ive never seen a panel with 2 buffers).
+
+The change background in panels is already working.
+
+Now saves do 2 loops in Panels. One for the panels themselves and the other for the surfaces and buffers. Panel is responsible for calling buffers and surfaces writes.
+
+03/02/2005:
+----------
+
+Added the equalAreas function, useful for digits, buttonviews, lights to make all areas the same size.
+
+Fixed a small bug while selecting areas from the template. The current object was not the highest on priority.
+
+02/02/2005:
+----------
+
+Small glitch: was printing a space after all comments. Fixed that.
+
+01/02/2005:
+----------
+
+Fixed another copy/paste, when the object didnt have src or destloc. Added the offset to panel properties.
+
+31/01/2005:
+----------
+
+Changed directory name... you know, marketing =)
+Fixed copy/paste bug, due to an error while cloning objects.
+
+23/01/2005:
+----------
+
+Fixed the tilt bug, parser was reading as an integer, its a float. Delete
+panel works. Added confirm dialog for save.
+
+Adjacent panels are working for panel properties.
+
+22/01/2005:
+----------
+
+Use S to save and C to check pit. Panel window and template window are frames
+now, not dialog anymore. Program starts now in 1100 view.
+
+21/01/2005:
+----------
+
+Check now checks if all images exist. Save now corrects all manager entries.
+Fixed HUD, RWR and MFD null pointer exception.
+
+20/01/2005:
+----------
+
+Fixed a bug in the check function. Check now checks buttons reference count.
+
+
+19/01/2005:
+----------
+
+Now the parser accepts those empty entries like buttonviews = ;. In fact, it
+ignores them(for panels only).
+
+Fixed the reference count bug, when you update a buttonview and buttons
+refcount was not being updated.
+
+19/12/2004:
+----------
+
+Fixed a possible bug while drawing a kneeboard with labels on(the drawLabeled function was not implemented).
+
+Changed all draw functions, im is not a parameter anymore.
+
+Added the non transparent template image. Now we have both, normalImage and transparentImage. Objects are draw according to the transparent tag in the srclocs.
+
+04/12/2004:
+----------
+
+Created the MainWindow class, now main only calls this class. Code is simpler.
+Also created the copy single object, and changed the c key to ctrl + c, and p to ctrl + p
+
+29/11/2004:
+----------
+
+Fixed some repaint problems with the panel window. validate() was not being called. Fixed the indicator draw, which was wrong.
+
+26/11/2004:
+----------
+
+Changed radius from int[3] to float[3], gotta test!!! Also fixed some bugs in the dial properties.
+
+25/11/2004:
+----------
+
+Implemented many things to add a new object, like the PropertiesDialog class. Buttonviews and adi can be created.
+
+05/11/2004:
+----------
+
+New version2. Now we work with java5. Cool, transparencies solved, no longer using internal classes, thanks to PixelGrabber class.
+
+01/11/2004:
+----------
+
+All properties are working right now, thought not all are properly tested.
+The parser accepts slash-slash comments anywhere now.
+
+Still have to see the new entry cobracab talked about.
+
+Added the altpanel entry, and fixed the missing cursorid in the light section, while saving.
+
+Also, took some deprecation warnings out, no longer calls show for dialogs, intead, using setVisible(true).
+
+

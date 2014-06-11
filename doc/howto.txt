@@ -1,0 +1,74 @@
+To create a new cockpit, press the "New" button, select the resolution and
+directory for cockpit. An empty cockpit will be created. Go to the template
+window and hit shift P. Load background image and have fun.
+
+
+KeyMap:
+=======
+
+NUMPAD: panel walk, switch views.
+ARROWS: fine tunning, move current object 1pix around
+
+C: check pit
+S: save pit
+A: toggle alpha channel(transparency) for rectangles. Slow!!
+N: toggle night view(was render needle, use dial property now...)
+O: show the panel object list, and user can select them from there.
+B: show cockpit button list, user can delete, create, edit existing ones.
+P: show selected object properties, with shift show current panel properties.
+In template, allows changing the background image.
+U: unselect the currently selected objects
+L: toggle labels on, right now I use the comment on the object, a line with a name:. I get everything after the :. This is cool! With labels on, in the template you can identify each area, as they are labeled as src0, src1, src2...
+E: make srclocs the same size as destlocs
+T: change selected objects state. Shift T for previous one. Ctrl T to reset.
+Shift + I: auto align hud.
+I: autocompute minpos and maxpos for indicators.
+
+INSERT/DELETE: create/delete object. ADIs, Buttonviews, DEDs, Dials, Digits, HSI, lights, machASI can be created.
+
+SHIFT + DEL: delete current panel.
+SHIFT + INSERT: create new panel.
+
+SHIFT + A: selects all objects from current panel
+CTRL + C: copies selected objects from the current panel to the "clipboard".
+CTRL + SHIFT + C: copies all objects from current panel to clipboard
+CTRL + V: paste clipboard to the current panel.
+
+SHIFT + B: send the selected objects to background in the panel(will be draw in the bottom of the panel), useful for stacking objects, and reordering them.
+SHIFT + F: send the selected objects to the foreground(will be draw on top of others)
+
+SHIFT + R: reloads current panel/template background image(depends on the window you do it)
+SHIFT + I: computes tilt value based on guncross position.
+		
++/-: zoom in / zoom out
+Users of international keyboard: if it does not work, try the numpad + and -
+
+R: select RWR on the panel, or create a new one if its not present in the current panel.
+H: same as above, but for hud
+1,2,3,4 on keyboard(not numpad): same as above, but for MFD left, right, 3rd and 4th
+
+Colors:
+=======
+
+Blue: buttonviews
+Red: lights
+Green: panel objects(MFDs, HUD, RWR)
+Yellow: objects
+Orange: current selected object
+
+Mouse:
+======
+
+Click an object to make it selected. Also change states on buttons and lights. Ctrl click allows you to select multiple objects, move them, and copy paste them. Cool!
+When selected, drag to move, drag the border to resize.
+ctrl + drag: resize
+shift + drag: move
+ctrl + click: toggle selected for an object
+Right button drag and drop: move all destinations(or source if in template) at the same time
+
+conf.txt:
+========
+
+Use this file to write the path to your cockpits, so the program will open that directory when you click the open button.
+example:
+c:\games\falcon4

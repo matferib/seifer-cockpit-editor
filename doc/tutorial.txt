@@ -1,0 +1,88 @@
+DISCLAIMER
+==========
+
+This program may be distributed under the terms of GPL.
+
+This program is open source, which means, you can do whatever you want with the source code, except claim it as your own, and any code based on it must be also open source. For more information, see GPL: http://www.gnu.org/copyleft/gpl.html
+
+And last, Im not responsible for any damage this tool may cause, use it at your own risk. I can assure you though that there is no code which is intentionally harmful to your machine.
+
+You can also compile the source code youself using netbeans, and opening the project. The source is there, see it yourself =)
+
+
+REQUIREMENTS
+============
+
+You need java runtime enviroment. You can download it from http://java.sun.com
+http://dlc.sun.com/jdk/jre-1_5_0_01-windows-i586-p.exe
+Both java 1.4 or 1.5(or 5.0 as they say) machine work.
+
+With java installed, download the file from
+www.dcc.ufmg.br/~mribeiro/falcon4/cockpitEditor2.tar.gz (latest stable)
+www.dcc.ufmg.br/~mribeiro/falcon4/cockpitEditor2-devel.tar.gz (unstable version, in test).
+
+The tar.gz file can be opened with winzip and other archiver tools, I guess winrar handles it well, and there was also a free one(powerzip i guess).
+
+RUNNING
+=======
+
+Go to the folder you unzipped the program and look for a cockpitEditor2.bat(or cockpitEditor2.sh on unix systems). Execute it and the program main window will appear. It has an open button. Click it and a browse window will popup. Choose the cockpit datafile(XX_ckpit.dat). Program will assume resolution from that XX name. So the name must
+begin with XX_(for example: 16_, or 10_).
+
+A prompt window will open in windows(a "DOS" window). Dont close it, java writes its output to this window.
+
+If you get memory problems, try adding the following to the java line in the cockpiteditor2.bat:
+-Xmx256M, this will increase memory pool java machine uses. So the line looks like
+java -Xmx256M -classpath build\classes cockpitEditor.cockpitEditorMain
+
+If after the first time you open you get this memory messages, restart the program, because java garbage collector is not to be trusted...
+
+EDITING
+=======
+
+This program uses a strong parser, which means the .dat file has to be right. It wont accept wrong lines like falcons and codecs editor do. Why? Because its much easier to debug with a clean file. And its also more correct. So, its very common to find errors like missing comment entries(the "//" lines without the double slash in the beginning). The program will point those errors tho, and the line, so you can go there and check it youself.
+
+It may take some moments while the program loads, and when it finishes, youll have 2 more windows, one for template and other for panels. The panel window also has a menu, with all panels, so you can choose them directly.
+
+Program will start in view 1100, as falcon does. To change to adjacent panels, use the numpad, as you would in falcon. The panel you see is called the current panel. To view its properties, use shift P. To delete the current panel, use shift del. To create a new one, use shift insert. Program will show a dialog with panel properties: YOU MUST KNOW all values, else the panel wont be created. For the adjPanels, use -1 for links you dont want(if you leave it blank, program will use -1 anyway). 
+
+In the current panel, objects are outlined with different colors. If you click any one of them, youll have it selected. This is the current object. With the current object selected, you can do many operations:
+- resize: hold control, and drag and drop the object. Program will choose the nearest corner as a base to resize the object.
+- move: hold shift, and drag and drop object. Program will move the selected area. You can also use arrows to move an area pixel by pixel.
+- delete: delete key
+- create a new object: insert key
+- view properties: p key
+- unselect current object: U key
+
+SAVING
+======
+
+After you created all objects and panels, save the pit:
+- save: s key. Program will create a backup file. If your pit is called 16_bla.dat, backup will be 16_bla.dat.bak. BEWARE IF YOU SAVE TWICE, BACKUP WILL BE LOST. So after saving, ALWAYS see if pit works in falcon. Else, restore backup. YOUVE BEEN WARNED. When saving, program will check for wrong entries and correct them(like manager entries). One less thing to worry about when building you pit =)
+
+HINTS
+=====
+
+When creating objects, dont be too worried about srclocs and destlocs. What i usually do is create the object at 0 0 100 100 coordinates and move/resize it to the right place using the mouse.
+
+You will be required to enter a callback slot when creating new objects. This is what the instrument actually does. A list of callbackslots can be found here:
+http://members.cox.net/cbodiker/buttons.html
+
+For buttonviews, youll need to know the parent button number. Open a .dat file and see the list of buttons in the beginning of the file, after manager and sounds.
+
+It is very useful to have a decent text editor, like editplus(I use vi).
+
+If the prompt window outputs something like nullpointer exception, you probably found a bug in the program. Try to duplicate it and send me a mail, Ill see what can be done. My mail can be found in the doc folder, inside a file called thanks.txt, where I also thank people who helped me in this.
+
+You cant create a new pit with this tool(yet). If you want to do it, take an existing .dat file, copy and paste elsewhere, and open it. And happy editing!
+
+There is a small howto.txt file inside the doc folder, with the basic instructions. And the changelog for the curious, showing the latest changes.
+
+Also, I very much welcome suggestions like: hey, you could do a button to make areas equal, or something make user life easier.
+
+And if you find this tool sucks, feel free to say too. Negative feedback is important, so I can improve it. Enough said, you are on your own now!
+
+I really hope you enjoy this tool as much as I did implementing it. And its still going, of course =) Some options here are only available in the devel version(create new panel for example). I try to squash bugs as much as they come, so plz feel free to contact me about them.
+
+Have fun
+Seifer out

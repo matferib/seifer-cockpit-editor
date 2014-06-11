@@ -1,0 +1,14 @@
+URGENT: save preference settings and load them
+
+DOING: Add something to edit 1 view (Manager properties)
+
+Version Window reading txt file
+Add convert all panels to BMS2 format
+Use ordered and unordered list for object list
+Auto detect template size
+Resize template and src together(ctrl right mouse)
+Add HSI compass needles.
+Fix the srlocs: they cant have the opaque nor transparent modifier(done for adi, buttonviews and lights, hsi, dial)
+Make parser read all entries even if error is found, and report all of them at once
+Make resizeBothAxis
+Show all ADI areas(most are done)
