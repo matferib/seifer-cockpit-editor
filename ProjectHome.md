@@ -1,0 +1,1 @@
+Written in java, this cockpit editor allows you to create a new cockpit from scratch or modify existing cockpits. It is not an image editor: images must be acquired from whatever sources and the palettes must respect Falcon format.
